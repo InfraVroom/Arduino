@@ -13,29 +13,25 @@ struct data IR_sensor[] ={
 {"LF", 0, "IR Sensor "},
 {"LB", 0, "IR Sensor "},
 {"RB", 0, "IR Sensor "}
-
 };
 
-void printvalues(int i){
-  for (int i = 0; i < IR_sensoramount; i++){
+void IRstate() { //Reading and printing(If detected) IR state
+  for (int i = 0; i<IR_sensoramount; i++){
+    IR_sensor[i].state = digitalRead(IR_pins[i]);
+    if (IR_sensor[i].state == 0){ // Check if the pin high or not
+    IR_sensor[i].state = digitalRead(IR_pins[i]);
     Serial.print("Detected ");
     Serial.print(IR_sensor[i].sensor_type);
     Serial.print(": ");
     Serial.println(IR_sensor[i].location);
-  }
-}
-
-void readvalues(void) {
-  for (int i = 0; i<IR_sensoramount; i++){
-    IR_sensor[i].state = digitalRead(IR_pins[i]);
-  }
-
-}
+  }}}
 
 void setup() {
-  Serial.begin(9600); // Init Serial at 115200 Baud Rate.
-  Serial.println("Serial Working"); // Test to check if serial is working or not
+  //Open Serial Monitor
+  Serial.begin(9600); 
+  Serial.println("Serial Working"); 
   
+  //Declaring IRpins
   for (int i = 0; i<IR_sensoramount; i++){
     pinMode(IR_pins[i], INPUT);
   }
@@ -43,13 +39,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  readvalues();
-   for (int i = 0; i < IR_sensoramount; i++){
-     if (IR_sensor[i].state == 0){ // Check if the pin high or not
-    printvalues(i);
-     }
-  }
- 
+  IRstate();
   
 }
