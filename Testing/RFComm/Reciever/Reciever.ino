@@ -19,7 +19,7 @@ Serial.println("starting...");
 
 void loop() {
 if (radio.available()) { // if nrf has any incoming data
-Serial.println("receiving");
+
 char text[32] = "";
 radio.read(&text, sizeof(text));
 Serial.println(text);
