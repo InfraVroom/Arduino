@@ -1,4 +1,4 @@
-uint8_t IR_pins[] = {9};
+uint8_t IR_pins[] = {7, 8, 9, 10};
 uint8_t IR_sensoramount = sizeof(IR_pins) / sizeof(IR_pins[0]);
 
 //Struct data localisation
@@ -10,10 +10,13 @@ struct data{
 
 struct data IR_sensor[] ={
 {"RF ", 0, "IR Sensor "},
-//{"LF", 0, "IR Sensor "}
+{"LF", 0, "IR Sensor "},
+{"LB", 0, "IR Sensor "},
+{"RB", 0, "IR Sensor "}
+
 };
 
-void printvalues(void){
+void printvalues(int i){
   for (int i = 0; i < IR_sensoramount; i++){
     Serial.print("Detected ");
     Serial.print(IR_sensor[i].sensor_type);
@@ -44,7 +47,7 @@ void loop() {
   readvalues();
    for (int i = 0; i < IR_sensoramount; i++){
      if (IR_sensor[i].state == 0){ // Check if the pin high or not
-    printvalues();
+    printvalues(i);
      }
   }
  
