@@ -34,11 +34,8 @@ void setup() {
   //Declaring IRpins
   for (int i = 0; i<IR_sensoramount; i++){
     pinMode(IR_pins[i], INPUT);
-  }
- 
-}
+  }}
 
 void loop() {
   IRstate();
-  
 }
