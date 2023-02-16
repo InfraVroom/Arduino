@@ -1,29 +1,20 @@
-#include <AFMotor.h>
 
 
-AF_DCMotor motor2(1);
-AF_DCMotor motor4(2);
-AF_DCMotor motor2(3);
-AF_DCMotor motor4(4);
-
+int PWM1 = 11;
+int in1 = 8;
+int in2 = 7;
 void setup() {
   
   Serial.begin(9600);
-
+  Serial.println("Serial working");
+pinMode(PWM1, OUTPUT);
+pinMode(in1, OUTPUT);
+pinMode(in2, OUTPUT);
 }
 
-void loop() {
-  
+void loop(){
 
-  motor2.setSpeed(255);
-  motor2.run(BACKWARD);
-
-  motor4.setSpeed(255);
-  motor4.run(FORWARD);
-
-  delay(2000);
-
-  motor2.run(RELEASE);
-  motor4.run(RELEASE);
-
+digitalWrite(PWM1, HIGH);
+digitalWrite(in1, HIGH);
+digitalWrite(in2, HIGH);
 }
