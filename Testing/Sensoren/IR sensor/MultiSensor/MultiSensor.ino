@@ -21,10 +21,10 @@ struct data IR_sensor[] ={
 {"LF", 0, 0, 0, 0, 0, "IR Sensor"},
 {"LB", 0, 0, 0, 0, 1, "IR Sensor"},
 {"RB", 0, 0, 0, 0, 0, "IR Sensor"},
-{"RF", 0, 0, 0, 0, 1, "IR Sensor"},
-{"LF", 0, 0, 0, 0, 0, "IR Sensor"},
-{"LB", 0, 0, 0, 0, 1, "IR Sensor"},
-{"RB", 0, 0, 0, 0, 0, "IR Sensor"}
+{"RF", 0, 0, 0, 45, 1, "IR Sensor"},
+{"LF", 0, 0, 0, 45, 0, "IR Sensor"},
+{"LB", 0, 0, 0, 45, 1, "IR Sensor"},
+{"RB", 0, 0, 0, 45, 0, "IR Sensor"}
 };
 
 
@@ -57,17 +57,12 @@ void setup() {
   //Declaring IRpins
   for (int i = 0; i<IR_sensoramount; i++){
     pinMode(IR_pins[i], INPUT);
-<<<<<<< HEAD
-  }}
-
-void loop() {
-  IRstate();
-=======
   }
   for (int i = 0; i<Sonar_sensoramount; i++){
     pinMode(sonarecho_pins[i], INPUT);
     pinMode(sonartrig_pins[i], OUTPUT);
   }}
+
 
 void debug(){ //print the values from the sensors to the Serial Monitor
   Serial.print("SONAR SENSOR:");
@@ -99,6 +94,6 @@ void debug(){ //print the values from the sensors to the Serial Monitor
 void loop() {
   IRstate();
   Sonarstate();  
-  //debug(); // this function is used if you want to see the data in the Serial Monitor
->>>>>>> 58b7e082446458ca5833bc1c9051450d99b75636
+  // debug(); // this function is used if you want to see the data in the Serial Monitor
 }
+
