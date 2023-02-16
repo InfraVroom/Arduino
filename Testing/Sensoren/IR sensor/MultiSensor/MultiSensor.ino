@@ -54,15 +54,29 @@ Serial.print("IR SENSOR: ");
 void Sonarstate(){
 Serial.print("SONAR SENSOR: ");
   for (int i = 0; i<IR_sensoramount; i++){
-    IR_sensor[i].state = digitalRead(IR_pins[i]);
-    Serial.print(" | ");
-    Serial.print(IR_sensor[i].location);
-    Serial.print(" [");
-    if(IR_sensor[i].anglepolarity==1){Serial.print("+");}
-    else {Serial.print("-");}
-    Serial.print(IR_sensor[i].angle);
-    Serial.print("] : ");
-    Serial.print(IR_sensor[i].state);
+
+    digitalWrite(sonartrig_pins[i], LOW);
+    delayMicroseconds(2);
+    digitalWrite(sonartrig_pins[i], HIGH);
+    delayMicroseconds(10);
+    digitalWrite(sonartrig_pins[i], LOW);
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(sonarecho_pins[i], HIGH);
+  // Calculating the distance
+  distance = duration * 0.034 / 2; 
+  // Prints the distance on the Serial Monitor
+  Serial.print(" Distance: ");
+  Serial.println(distance);
+
+    //sonar_sensor[i]. = digitalRead(IR_pins[i]);
+    //Serial.print(" | ");
+    //Serial.print(IR_sensor[i].location);
+    //Serial.print(" [");
+    //if(IR_sensor[i].anglepolarity==1){Serial.print("+");}
+    //else {Serial.print("-");}
+    //Serial.print(IR_sensor[i].angle);
+    //Serial.print("] : ");
+    //Serial.print(IR_sensor[i].state);
   }
   Serial.println(" |");
 }
