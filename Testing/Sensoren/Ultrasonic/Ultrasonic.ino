@@ -6,8 +6,8 @@
 
 */
 // defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
+const int trigPin = 11;
+const int echoPin = 12;
 // defines variables
 long duration;
 int distance;
@@ -27,7 +27,7 @@ void loop() {
   // Reads the echoPin, returns the sound wave travel time in microseconds
   duration = pulseIn(echoPin, HIGH);
   // Calculating the distance
-  distance = duration * 0.034 / 2;
+  distance = duration * 0.034 / 2; 
   // Prints the distance on the Serial Monitor
   Serial.print("Distance: ");
   Serial.println(distance);
