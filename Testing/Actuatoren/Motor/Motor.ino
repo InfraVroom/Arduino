@@ -1,10 +1,9 @@
 #include <AFMotor.h>
 
 
-AF_DCMotor motor2(1);
-AF_DCMotor motor4(2);
-AF_DCMotor motor2(3);
-AF_DCMotor motor4(4);
+AF_DCMotor motor1(1);
+AF_DCMotor motor2(2);
+
 
 void setup() {
   
@@ -14,16 +13,22 @@ void setup() {
 
 void loop() {
   
+  int variableSpeed = 255;
+  float motor1SpeedF = 0.5, motor2SpeedF = 0.7, motor3SpeedF, motor4SpeedF;
+  float motor1Speed = motor1SpeedF * variableSpeed;
+  float motor2Speed = motor2SpeedF * variableSpeed;
+  float motor3Speed = motor3SpeedF * variableSpeed;
+  float motor4Speed = motor4SpeedF * variableSpeed;
 
-  motor2.setSpeed(255);
-  motor2.run(BACKWARD);
+  motor1.setSpeed(motor1Speed);
+  motor1.run(FORWARD);
 
-  motor4.setSpeed(255);
-  motor4.run(FORWARD);
+  motor2.setSpeed(motor2Speed);
+  motor2.run(FORWARD);
 
   delay(2000);
 
+  motor1.run(RELEASE);
   motor2.run(RELEASE);
-  motor4.run(RELEASE);
 
 }
