@@ -10,14 +10,14 @@ struct data{
 };
 
 struct data IR_sensor[] ={
-  {"RF", 0, 0, 0, 0, 1, "IR Sensor"},
-  {"LF", 0, 0, 0, 0, 0, "IR Sensor"},
-  {"LB", 0, 0, 0, 0, 1, "IR Sensor"},
-  {"RB", 0, 0, 0, 0, 0, "IR Sensor"},
-  {"RF", 0, 0, 0, 45, 1, "IR Sensor"},
-  {"LF", 0, 0, 0, 45, 0, "IR Sensor"},
-  {"LB", 0, 0, 0, 45, 1, "IR Sensor"},
-  {"RB", 0, 0, 0, 45, 0, "IR Sensor"}
+  {"LB", 0, 0, 0, 180, 1, "IR Sensor"},
+  {"LB", 0, 0, 0, 90, 0, "IR Sensor"},
+  {"LF", 0, 0, 0, 0, 1, "IR Sensor"},
+  {"LF", 0, 0, 0, 90, 0, "IR Sensor"},
+  {"RB", 0, 0, 0, 180, 1, "IR Sensor"},
+  {"RB", 0, 0, 0, 90, 1, "IR Sensor"},
+  {"RF", 0, 0, 0, 90, 1, "IR Sensor"},
+  {"RF", 0, 0, 0, 0, 1, "IR Sensor"}
 };
 
 struct data Sonar_sensor[] ={ //declaring 3 sonar sensors by using a struct

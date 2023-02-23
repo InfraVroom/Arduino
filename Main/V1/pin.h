@@ -11,7 +11,7 @@ const int DATA = 8;
 const int DIR_LATCH = 12;
 
 //IR SENSOR
-uint8_t IR_pins[] = {2, 3, 4, 5, 6, 7, 8, 9};
+uint8_t IR_pins[] = {22, 24, 26, 28, 30, 32, 34, 36};
 uint8_t IR_sensoramount = sizeof(IR_pins) / sizeof(IR_pins[0]);
 
 //SONAR SENSOR
