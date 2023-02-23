@@ -39,5 +39,5 @@ void loop() {
   IRstate();
   AXISstate();
   Sonarstate();  
-  // debug(); // this function is used if you want to see the data in the Serial Monitor
+  debug(); // this function is used if you want to see the data in the Serial Monitor
 }
