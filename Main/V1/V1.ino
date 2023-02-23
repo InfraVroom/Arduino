@@ -8,7 +8,6 @@
 #define BNO055_SAMPLERATE_DELAY_MS (100)
 
 //Pins
-
 // Check I2C device address and correct line below (by default address is 0x29 or 0x28)
 //                                   id, address
 Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28, &Wire);
@@ -145,11 +144,9 @@ void debug(){ //print the values from the sensors to the Serial Monitor
     Serial.println(" |"); 
    }
 
-
 void loop() {
   IRstate();
   AXISstate();
   Sonarstate();  
   // debug(); // this function is used if you want to see the data in the Serial Monitor
 }
-
