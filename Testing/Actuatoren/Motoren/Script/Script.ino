@@ -31,10 +31,10 @@ const int Right_Back_Rotation = 129;
 const int drift = 116;
 
 //MotorSpeed
-int MotorPWM1 = 200; //LF
-int MotorPWM2 = 200; //RF
-int MotorPWM3 = 200; //LB
-int MotorPWM4 = 200; //RB
+int MotorPWM1 = 75; //LF
+int MotorPWM2 = 75; //RF
+int MotorPWM3 = 75; //LB
+int MotorPWM4 = 75; //RB
 
 void setup() {
   pinMode(DIR_CLK, OUTPUT);
@@ -53,84 +53,84 @@ void MOTOR(int Direction, int MotorPWM1, int MotorPWM2, int MotorPWM3, int Motor
 
 void loop() {
 MOTOR(Forward, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
+delay(500);
 MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+delay(500);
 
-MOTOR(Backward, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Backward, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Left_Sideways, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Left_Sideways, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Right_Sideways, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Right_Sideways, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Left_AAB, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Left_AAB, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Right_AAB, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Right_AAB, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Forward_Left_Diagonally, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Forward_Left_Diagonally, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Backward_Left_Diagonally, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Backward_Left_Diagonally, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Forward_Right_Diagonally, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Forward_Right_Diagonally, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Backward_Right_Diagonally, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Backward_Right_Diagonally, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Left_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Left_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Right_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Right_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Left_Front_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Left_Front_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Right_Front_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Right_Front_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Left_Back_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Left_Back_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 
-MOTOR(Right_Back_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(2500);
-MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
-delay(1000);
+// MOTOR(Right_Back_Rotation, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(2500);
+// MOTOR(STOP, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
+// delay(1000);
 }
 
 //
