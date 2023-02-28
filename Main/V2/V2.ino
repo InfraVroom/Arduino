@@ -53,6 +53,7 @@ void setup() {
   delay(1000);
   }
 
+
 void loop() {
   //SERVO
   currentMillis = millis();
@@ -62,33 +63,45 @@ void loop() {
   IRstate();
   AXISstate();
   Sonarstate();  
-
-
-
-  //MOVEMENT
-  Forward();
-  MATRIX_FORWARD();
-  delay(1000);
+  
+  if(IR_sensor[2].state == 0 && IR_sensor[3].state == 0 && IR_sensor[7].state == 0){
+  Right_Rotation();
+  MATRIX_RIGHT();
+  } else if(IR_sensor[2].state == 0){
   STOP();
   MATRIX_STOP();
   delay(1000);
   Backward();
   MATRIX_BACKWARD();
   delay(1000);
+  Right_Rotation();
+  MATRIX_RIGHT();
+  delay(500);
+  } else if(IR_sensor[7].state == 0){
   STOP();
   MATRIX_STOP();
   delay(1000);
-  Left_Sideways();
+  Backward();
+  MATRIX_BACKWARD();
+  delay(1000);
+  Left_Rotation();
+  MATRIX_LEFT();
+  delay(500);
+  }else if(IR_sensor[2].state == 0 && IR_sensor[7].state == 0){
+  STOP();
+  MATRIX_STOP();
+  delay(1000);
+  Backward();
+  MATRIX_BACKWARD();
+  delay(2000);
+  Left_Rotation();
   MATRIX_LEFT();
   delay(1000);
-  STOP();
-  MATRIX_STOP();
-  delay(1000);
-  Right_Sideways();
-  MATRIX_RIGHT();
-  delay(1000);
-  STOP();
-  MATRIX_STOP();
-  delay(1000);
-  // debug(); // this function is used if you want to see the data in the Serial Monitor
+  } else {
+  Forward();
+  MATRIX_FORWARD();
+  }
+
+
+  debug(); // this function is used if you want to see the data in the Serial Monitor
 }

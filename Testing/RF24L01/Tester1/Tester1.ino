@@ -46,7 +46,6 @@ while (Serial.available()) {
 
   if (readString.length() >0) {
     Serial.println(readString);
-    dataToSend = readString;
     readString="";
 
   } 

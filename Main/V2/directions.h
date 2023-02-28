@@ -19,10 +19,10 @@ const int DIR_Right_Back_Rotation = 129;
 const int DIR_drift = 116;
 
 //MotorSpeed
-int MotorPWM1 = 200; //LF
-int MotorPWM2 = 200; //RF
-int MotorPWM3 = 200; //LB
-int MotorPWM4 = 200; //RB
+int MotorPWM1 = 100; //LF
+int MotorPWM2 = 100; //RF
+int MotorPWM3 = 100; //LB
+int MotorPWM4 = 100; //RB
 
 //Driving motor
 void MOTOR(int Direction, int MotorPWM1, int MotorPWM2, int MotorPWM3, int MotorPWM4) {
