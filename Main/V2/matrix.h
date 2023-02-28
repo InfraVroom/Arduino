@@ -62,6 +62,8 @@ byte BYTEBACKWARD[8] = {
   0b00011000
 };
 
+
+
 void MATRIX_FORWARD(){
   for (int i = 0; i < 8; i++) {
   lc.setRow(0,i,BYTEFORWARD[i]);}
