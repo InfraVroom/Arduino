@@ -10,8 +10,11 @@
 #include "directions.h"
 #include "readsensor.h"
 #include "debug.h"
+#include "servo_function.h"
 
 void setup() {
+  servo1.write(servoPosition); 
+  servo1.attach(servoPin);
   //Open Serial Monitor
   Serial.begin(115200); 
   Serial.println("Serial Working"); 
@@ -44,6 +47,8 @@ void setup() {
   }
 
 void loop() {
+  currentMillis = millis();
+  servoSweep(currentMillis);
   IRstate();
   AXISstate();
   Sonarstate();  
