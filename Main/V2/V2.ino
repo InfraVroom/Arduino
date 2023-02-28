@@ -56,7 +56,7 @@ void setup() {
 
 void loop() {
   //SERVO
-  currentMillis = millis();
+  // currentMillis = millis();
   // servoSweep(currentMillis);
 
   //SENSOR
@@ -103,5 +103,5 @@ void loop() {
   }
 
 
-  debug(); // this function is used if you want to see the data in the Serial Monitor
+  // debug(); // this function is used if you want to see the data in the Serial Monitor
 }
