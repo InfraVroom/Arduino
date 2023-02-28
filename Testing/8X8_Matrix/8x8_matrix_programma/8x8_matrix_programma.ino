@@ -1,4 +1,4 @@
-#include <MAX7219.h>
+#include <max7219.h>
 
 // 8x8 Dot-Matrix
 int DIN = 50;

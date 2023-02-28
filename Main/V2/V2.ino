@@ -11,8 +11,15 @@
 #include "readsensor.h"
 #include "debug.h"
 #include "servo_function.h"
+#include "matrix.h"
 
 void setup() {
+    lc.shutdown(0,false);
+  // Set brightness to a medium value
+  lc.setIntensity(0,8);
+  // Clear the display
+  lc.clearDisplay(0);  
+
   servo1.write(servoPosition); 
   servo1.attach(servoPin);
   //Open Serial Monitor
@@ -47,10 +54,39 @@ void setup() {
   }
 
 void loop() {
+  //SERVO
   currentMillis = millis();
-  servoSweep(currentMillis);
+  // servoSweep(currentMillis);
+
+  //SENSOR
   IRstate();
   AXISstate();
   Sonarstate();  
+
+  //MOVEMENT
+  Forward();
+  MATRIX_FORWARD();
+  delay(1000);
+  STOP();
+  MATRIX_STOP();
+  delay(1000);
+  Backward();
+  MATRIX_BACKWARD();
+  delay(1000);
+  STOP();
+  MATRIX_STOP();
+  delay(1000);
+  Left_Sideways();
+  MATRIX_LEFT();
+  delay(1000);
+  STOP();
+  MATRIX_STOP();
+  delay(1000);
+  Right_Sideways();
+  MATRIX_RIGHT();
+  delay(1000);
+  STOP();
+  MATRIX_STOP();
+  delay(1000);
   // debug(); // this function is used if you want to see the data in the Serial Monitor
 }
