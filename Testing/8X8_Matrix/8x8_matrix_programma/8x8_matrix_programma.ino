@@ -1,4 +1,4 @@
-#include <MAX7219.h>
+#include <max7219.h>
 
 unsigned long currentMillis = 0;
 unsigned long previousMillis = 0;
