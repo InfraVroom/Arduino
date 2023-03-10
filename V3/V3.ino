@@ -11,20 +11,25 @@
 #include "readsensor.h"
 #include "debug.h"
 #include "servo_function.h"
-#include "matrix.h"
+//#include "matrix.h"
+
+
+char bluetoothValue;
 
 void setup() {
-    lc.shutdown(0,false);
-  // Set brightness to a medium value
-  lc.setIntensity(0,8);
-  // Clear the display
-  lc.clearDisplay(0);  
+  //   lc.shutdown(0,false);
+  // // Set brightness to a medium value
+  // lc.setIntensity(0,8);
+  // // Clear the display
+  // lc.clearDisplay(0);  
 
-  servo1.write(servoPosition); 
-  servo1.attach(servoPin);
+  //servo1.write(servoPosition); 
+  //servo1.attach(servoPin);
   //Open Serial Monitor
-  Serial.begin(115200); 
-  Serial.println("Serial Working"); 
+  Serial.begin(9600);
+  //Serial1.begin(9600); 
+  
+  /*Serial.println("Serial Working"); 
   //wait for serial port to open
   while (!Serial) delay(10); 
   //Initialise the sensor
@@ -33,6 +38,7 @@ void setup() {
     Serial.print("Check wiring BNO055");
     while(1);
   }
+  */
   //Declaring IRpins
   for (int i = 0; i<IR_sensoramount; i++){
     pinMode(IR_pins[i], INPUT);
@@ -55,6 +61,35 @@ void setup() {
 
 
 void loop() {
+
+  while(Serial.available()>0){ 
+bluetoothValue = Serial.read();
+Serial.print(bluetoothValue);
+//Serial.print("\n");
+delay(10);
+
+ if(bluetoothValue =='0'){
+      Serial.println(" Left ");
+       Left_Sideways();
+  }else if(bluetoothValue == '1'){
+      Serial.println(" Forward ");
+      Forward();
+  }else if(bluetoothValue == '2'){
+      Serial.println(" Right ");
+      Right_Sideways();
+  }else if(bluetoothValue == '3'){
+      Serial.println(" Backwards ");
+      Backward();
+  }else if(bluetoothValue == '4'){
+      Serial.println(" ND");
+  }else if(bluetoothValue == '5'){
+      Serial.println(" ND");
+  }else if(bluetoothValue == '6'){
+      Serial.println(" ND");
+  }else if(bluetoothValue == '7'){
+      STOP();
+  }
+  }
   //SERVO
   // currentMillis = millis();
   // servoSweep(currentMillis);
