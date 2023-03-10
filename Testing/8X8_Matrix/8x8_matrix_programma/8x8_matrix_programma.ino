@@ -1,5 +1,10 @@
 #include <max7219.h>
 
+unsigned long currentMillis = 0;
+unsigned long previousMillis = 0;
+unsigned long previousMillis1 = 0;
+int matrixdelay = 1000;
+
 // 8x8 Dot-Matrix
 int DIN = 50;
 int CS =  53;
@@ -32,32 +37,42 @@ const static byte arrowdown[8] = {
   0b00011000,
 };
 
-void setup() {
+void setup() {  
 }
 
 void loop() {
-  
+ 
+  arrowupmatrix() ;
+  arrowdownmatrix() ;  
+}
+
+void arrowupmatrix() {
+currentMillis = millis();  
+while (currentMillis - previousMillis >= matrixdelay) {
+
   // Make arrowup from array
   for(int row = 0; row <= 7; row++)
   {
     Matrix.setRow(1, row, arrowup[row]);
-    delay(0);
   }
-  delay(1000);
   
+  previousMillis += matrixdelay; //previousMillis = previousMillis + matrixdelay
+}
+}
+
+void arrowdownmatrix(){
+  
+   currentMillis = millis(); 
+while (currentMillis - previousMillis >= matrixdelay ) {
+ 
   // Make Letter arrowdown from array
   for(int row = 0; row <= 7; row++)
   {
     Matrix.setRow(1, row, arrowdown[row]);
-    delay(0);
   }
-  delay(1000);
-
-  // invert display
-  Matrix.invertDisplay(0);
-  delay(1000);
+  previousMillis += matrixdelay; //prevoiusMillis = previousMillis + matrixdelay
   
-  // clear display
-  Matrix.clearDisplay(0);
-  delay(1000);
 }
+}
+
+
