@@ -59,7 +59,10 @@ void loop() {
   // currentMillis = millis();
   // servoSweep(currentMillis);
 
+
+
   //SENSOR
+  /*
   IRstate();
   AXISstate();
   Sonarstate();  
@@ -101,7 +104,7 @@ void loop() {
   Forward();
   MATRIX_FORWARD();
   }
-
+*/
 
   // debug(); // this function is used if you want to see the data in the Serial Monitor
 }
