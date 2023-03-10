@@ -3,7 +3,7 @@ char bluetoothValue;
 
 void setup()   {//Here the code only runs once.
   
-  Serial.begin(9600);
+  Serial1.begin(9600);
 
 }
 
