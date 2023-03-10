@@ -26,8 +26,8 @@ void setup() {
   //servo1.write(servoPosition); 
   //servo1.attach(servoPin);
   //Open Serial Monitor
-  Serial.begin(9600);
-  //Serial1.begin(9600); 
+  //Serial.begin(9600);
+  Serial1.begin(9600); 
   
   /*Serial.println("Serial Working"); 
   //wait for serial port to open
