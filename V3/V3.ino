@@ -71,7 +71,7 @@ delay(10);
 
  if(bluetoothValue =='0'){
       Serial.println(" Left ");
-       Left_Sideways();
+      Left_Sideways();
   }else if(bluetoothValue == '1'){
       Serial.println(" Forward ");
       Forward();
@@ -82,14 +82,20 @@ delay(10);
       Serial.println(" Backwards ");
       Backward();
   }else if(bluetoothValue == '4'){
-      Serial.println(" ND");
+      Serial.println(" Faster");
+      SPEED(150,150,150,150);
   }else if(bluetoothValue == '5'){
-      Serial.println(" ND");
-  }else if(bluetoothValue == '6'){
-      Serial.println(" ND");
+      Serial.println(" Slower"); 
+      SPEED(100, 100, 100, 100);   
+  }else if(bluetoothValue == '6'){ 
+      Serial.println(" Left rotation");
+      Left_Rotation();
   }else if(bluetoothValue == '7'){
       STOP();
-  }
+  }else if (bluetoothValue == '8'){
+      Serial.println(" Right rotation"); 
+      Right_Rotation();
+    }
   }
   //SERVO
   // currentMillis = millis();

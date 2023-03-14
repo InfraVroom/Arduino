@@ -33,16 +33,22 @@ int MotorPWM2 = 150; //RF
 int MotorPWM3 = 150; //LB
 int MotorPWM4 = 150; //RB
 
-//Driving motor
-void MOTOR(int Direction, int MotorPWM1, int MotorPWM2, int MotorPWM3, int MotorPWM4) {
+
+void SPEED(int MotorPWM1, int MotorPWM2, int MotorPWM3, int MotorPWM4){
   analogWrite(PWM2A, MotorPWM1);
   analogWrite(PWM2B, MotorPWM2);
   analogWrite(PWM0A, MotorPWM3);
   analogWrite(PWM0B, MotorPWM4);
+}
+//Driving motor
+void MOTOR(int Direction, int MotorPWM1, int MotorPWM2, int MotorPWM3, int MotorPWM4) {
+  SPEED(MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);
   digitalWrite(DIR_LATCH, LOW);
   shiftOut(DATA, DIR_CLK, MSBFIRST, Direction);
   digitalWrite(DIR_LATCH, HIGH); 
 }
+
+
 
 void Forward(){
 MOTOR(DIR_Forward, MotorPWM1, MotorPWM2, MotorPWM3, MotorPWM4);}
