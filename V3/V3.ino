@@ -27,6 +27,7 @@ void setup() {
   //servo1.attach(servoPin);
   //Open Serial Monitor
   //Serial.begin(9600);
+  Serial.begin(9600);
   Serial1.begin(9600); 
   
   /*Serial.println("Serial Working"); 
@@ -62,8 +63,8 @@ void setup() {
 
 void loop() {
 
-  while(Serial.available()>0){ 
-bluetoothValue = Serial.read();
+  while(Serial1.available()>0){ 
+bluetoothValue = Serial1.read();
 Serial.print(bluetoothValue);
 //Serial.print("\n");
 delay(10);

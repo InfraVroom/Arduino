@@ -4,14 +4,14 @@ char bluetoothValue;
 void setup()   {//Here the code only runs once.
   
   Serial.begin(9600);
-
+  Serial1.begin(9600);
 }
 
 void loop() {
 
-while(Serial.available()>0){ 
+while(Serial1.available()>0){ 
   
-bluetoothValue = Serial.read();
+bluetoothValue = Serial1.read();
 
 Serial.print(bluetoothValue);
 //Serial.print("\n");
