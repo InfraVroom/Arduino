@@ -14,12 +14,11 @@
 #include "matrix.h"
 
 void setup() {
-    lc.shutdown(0,false);
-  // Set brightness to a medium value
-  lc.setIntensity(0,8);
-  // Clear the display
-  lc.clearDisplay(0);  
-
+  //Display controll
+  display.clearDisplay(0);
+  display.shutdown(0,false);
+  display.setIntensity(0, 5); 
+  //Servo Write
   servo1.write(servoPosition); 
   servo1.attach(servoPin);
   //Open Serial Monitor
@@ -28,19 +27,12 @@ void setup() {
   //wait for serial port to open
   while (!Serial) delay(10); 
   //Initialise the sensor
-  if(!bno.begin())
-  {
-    Serial.print("Check wiring BNO055");
-    while(1);
-  }
+  if(!bno.begin()){Serial.print("Check wiring BNO055"); while(1);  }
   //Declaring IRpins
-  for (int i = 0; i<IR_sensoramount; i++){
-    pinMode(IR_pins[i], INPUT);
-  }
-  for (int i = 0; i<Sonar_sensoramount; i++){
-    pinMode(sonarecho_pins[i], INPUT);
-    pinMode(sonartrig_pins[i], OUTPUT);
-  }
+  for (int i = 0; i<IR_sensoramount; i++){pinMode(IR_pins[i], INPUT);}
+  for (int i = 0; i<Sonar_sensoramount; i++){pinMode(sonarecho_pins[i], INPUT); pinMode(sonartrig_pins[i], OUTPUT);}
+
+  //Pinouts
   pinMode(DIR_CLK, OUTPUT);
   pinMode(DATA, OUTPUT);
   pinMode(DIR_EN, OUTPUT);
@@ -59,7 +51,7 @@ void loop() {
   // currentMillis = millis();
   // servoSweep(currentMillis);
 
-
+displayImage(IMAGES[6]);
 
   //SENSOR
   /*
