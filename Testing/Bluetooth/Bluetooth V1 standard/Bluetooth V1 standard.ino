@@ -1,3 +1,9 @@
+/* Standaard programma voor het uitlezen van data via BT. 
+De ontvangen data wordt geprint op de Seriële monitor.
+De pinnen Rx1 en Tx1 op Mega kunnen worden gebruikt door Serial1. te gebruiken
+BT-Rx ==> Mega-Tx1
+BT-Tx ==> Mega-Rx1
+*/
 
 char bluetoothValue;
 
@@ -26,13 +32,15 @@ delay(10);
   }else if(bluetoothValue == '3'){
       Serial.println(" Backwards ");
   }else if(bluetoothValue == '4'){
-      Serial.println(" ND");
+      Serial.println(" Faster");
   }else if(bluetoothValue == '5'){
-      Serial.println(" ND");
+      Serial.println(" Slower");
   }else if(bluetoothValue == '6'){
-      Serial.println(" ND");
+      Serial.println(" Left rotation");
   }else if(bluetoothValue == '7'){
       Serial.println(" Stop");
-  }
+  }else if (bluetoothValue == '8'){
+      Serial.println(" Right rotation"); 
+    }
 }
 }
