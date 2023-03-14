@@ -1,86 +1,30 @@
-#include "LedControl.h"
-#include "binary.h"
+#include <LedControl.h>
 
-/*
- DIN connects to pin 12
- CLK connects to pin 11
- CS connects to pin 10 
-*/
-LedControl lc=LedControl(50,51,53,1);
-//FORWARD
-byte BYTEFORWARD[8] = {
-  0b00011000,
-  0b00111100,
-  0b01011010,
-  0b10011001,
-  0b00011000,
-  0b00011000,
-  0b00011000,
-  0b00011000
+const int DIN_PIN = 50;
+const int CS_PIN = 53;
+const int CLK_PIN = 51;
+
+const uint64_t IMAGES[] = {
+  0x081c3e0808080808,
+  0x08080808083e1c08,
+  0x002060ff60200000,
+  0x000406ff06040000,
+  0x000042e242423c00,
+  0x0000424742423c00,
+  0x0102040890e0e0f0,
+  0x804020100907070f,
+  0x0f07070910204080,
+  0xf0e0e09008040201
 };
-byte BYTESTOP[8] = {
-  0b00111100,
-  0b01000010,
-  0b10000001,
-  0b11111111,
-  0b11111111,
-  0b10000001,
-  0b01000010,
-  0b00111100
-};
+const int IMAGES_LEN = sizeof(IMAGES)/8;
 
-byte BYTELEFT[8] ={
-  0b00010000,
-  0b00100000,
-  0b01000000,
-  0b11111111,
-  0b11111111,
-  0b01000000,
-  0b00100000,
-  0b00010000
-};
+LedControl display = LedControl(DIN_PIN, CLK_PIN, CS_PIN);
 
-byte BYTERIGHT[8] = {
-  0b00001000,
-  0b00000100,
-  0b00000010,
-  0b11111111,
-  0b11111111,
-  0b00000010,
-  0b00000100,
-  0b00001000
-};
-
-byte BYTEBACKWARD[8] = {
-  0b00011000,
-  0b00011000,
-  0b00011000,
-  0b00011000,
-  0b10011001,
-  0b01011010,
-  0b00111100,
-  0b00011000
-};
-
-
-
-void MATRIX_FORWARD(){
+void displayImage(uint64_t image) {
   for (int i = 0; i < 8; i++) {
-  lc.setRow(0,i,BYTEFORWARD[i]);}
+    byte row = (image >> i * 8) & 0xFF;
+    for (int j = 0; j < 8; j++) {
+      display.setLed(0, i, j, bitRead(row, j));
+    }
+  }
 }
-void MATRIX_STOP(){
-  for (int i = 0; i < 8; i++) {
-  lc.setRow(0,i,BYTESTOP[i]);}
-}
-void MATRIX_LEFT(){
-  for (int i = 0; i < 8; i++) {
-  lc.setRow(0,i,BYTELEFT[i]);
-}}
-void MATRIX_RIGHT(){
-    for (int i = 0; i < 8; i++) {
-  lc.setRow(0,i,BYTERIGHT[i]);
-}}
-void MATRIX_BACKWARD(){
-    for (int i = 0; i < 8; i++) {
-  lc.setRow(0,i,BYTEBACKWARD[i]);
-}}
